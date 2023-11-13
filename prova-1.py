@@ -2,9 +2,9 @@ cont = 0
 contA = 0
 contV = 0
 contR = 0
-porcentagemR = ''
-porcentagemV = ''
-porcentagemA = ''
+porcentagemA = 0
+porcentagemV = 0
+porcentagemR = 0
 idade_menor_A = 1000
 idade_maior_A = 0
 idade_menor_V = 1000
@@ -17,8 +17,6 @@ idade_menor_respV = ''
 idade_maior_respV = ''
 idade_menor_respR = ''
 idade_maior_respR = ''
-contM = 0
-contF = 0
 contMA = 0
 contFA = 0
 contMV = 0
@@ -26,14 +24,12 @@ contFV = 0
 contMR = 0
 contFR = 0
 while True:
-    cor = (input("Cor Preferida \nIndique A para Azul \nIndique V para Verde \nIndique R para Rosa \n(EM CAIXA ALTA)\n\n "))
+    cor = (input("Cor Preferida \nIndique A para Azul \nIndique V para Verde \nIndique R para Rosa \n(EM CAIXA ALTA)\n\n"))
     idade = int(input("Informe sua Idade:\n\n"))
     sexo = (input("Informe seu Sexo: \nM para Masculino \nF para Feminino \n(EM CAIXA ALTA)\n\n"))
     cont += 1
     if(cor == 'A'):
         contA += 1
-        if contA > 0:
-            porcentagemA = (contA * 100) / cont
         if (idade > idade_maior_A):
             idade_maior_A = idade
             idade_maior_respA = cor
@@ -45,9 +41,7 @@ while True:
         if sexo == 'F':
             contFA +=1
     if(cor == 'V'):
-        contV += 1
-        if contV > 0:
-            porcentagemV = (contV * 100) / cont
+        contV += 1    
         if (idade > idade_maior_V):
             idade_maior_V = idade
             idade_maior_respV = cor
@@ -60,8 +54,6 @@ while True:
             contFV +=1
     if(cor == 'R'):
         contR += 1
-        if contR > 0:
-            porcentagemR = (contR * 100) / cont
         if (idade > idade_maior_R):
             idade_maior_R = idade
             cor = 'R'
@@ -75,10 +67,21 @@ while True:
             contFR +=1
     if(input("Deseja Continuar? (S, N)" )) != "S":
         break
-
+if contA > 0:
+    porcentagemA = (contA / cont) * 100
+else:
+    0
+if contV > 0:
+    porcentagemV = (contV / cont) * 100
+else:
+    0
+if contR > 0:
+    porcentagemR = (contR / cont) * 100
+else:
+    0 
 print("TOTAL DE PESSOAS" , cont)
 print("Percentual de Pessoas que prefere Azul" , porcentagemA)  
-print("Percentual de Pessoas que prefere Verde" , porcentagemV)  
+print("Percentual de Pessoas que prefere Verde" ,  porcentagemV)  
 print("Percentual de Pessoas que prefere Rosa" , porcentagemR)
 print(f"Idade da Pessoa Mais Velha tem {idade_maior_A} anos de idade e prefere a cor {idade_maior_respA}")
 print(f"Idade da Pessoa Mais Velha tem {idade_menor_A} anos de idade e prefere a cor {idade_maior_respA}")
