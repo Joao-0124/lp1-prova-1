@@ -93,7 +93,6 @@ def exibir_tabela(tabela, titulo, ylabel):
     plt.ylabel(ylabel)
     plt.title(titulo)
     plt.xticks(rotation=90)
-    plt.legend()
     plt.tight_layout()
 
     canvas = FigureCanvasTkAgg(plt.gcf(), master=frame)
